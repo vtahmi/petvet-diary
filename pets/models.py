@@ -1,7 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from accounts.models import CustomUser
 from datetime import date
 
+User = get_user_model()
 
 class Pet(models.Model):
     SPECIES_CHOICES = [
@@ -12,7 +14,7 @@ class Pet(models.Model):
     ]
 
     owner = models.ForeignKey(
-        CustomUser,
+        User,
         on_delete=models.CASCADE,
         related_name='pets',
     )
@@ -72,7 +74,7 @@ class Vaccination(models.Model):
     )
 
     veterinarian = models.ForeignKey(
-        CustomUser,
+        User,
         on_delete=models.SET_NULL,
         null=True,
         blank=True,

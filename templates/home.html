@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - PetVet Diary{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4">🐾 Welcome to PetVet Diary</h1>
+        <p class="lead mt-3">
+            Track your pet's health, vaccinations, and vet visits all in one place.
+        </p>
+
+        {% if user.is_authenticated %}
+            <div class="mt-4">
+                <p class="fs-5">Hello, <strong>{{ user.username }}</strong>!
+                    {% if user.is_owner %}
+                        (Pet Owner)
+                    {% elif user.is_vet %}
+                        (Veterinarian)
+                    {% endif %}
+                </p>
+                <a href="{% url 'accounts:profile' %}" class="btn btn-primary btn-lg">View My Profile</a>
+            </div>
+        {% else %}
+            <div class="mt-4">
+                <a href="{% url 'accounts:register' %}" class="btn btn-success btn-lg me-2">Get Started</a>
+                <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary btn-lg">Login</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

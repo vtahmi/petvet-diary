@@ -1,6 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from pets.models import Pet
 
+User = get_user_model()
 
 class Tag(models.Model):
     name = models.CharField(
@@ -32,7 +34,7 @@ class Comment(models.Model):
     )
 
     author = models.ForeignKey(
-        CustomUser,
+        User,
         on_delete=models.CASCADE,
         related_name='comments'
     )
