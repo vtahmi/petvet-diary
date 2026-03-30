@@ -27,3 +27,25 @@ main {
 footer {
     margin-top: auto;
 }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn-success {
+    background-color: #32ba12 !important;
+    border-color: #198754 !important;
+    color: #fff !important;
+}
+
+.btn-success:hover {
+    background-color: #10d147 !important;
+    border-color: #146c43 !important;
+}
+.badge {
+    background-color: #32ba12 !important;
+}

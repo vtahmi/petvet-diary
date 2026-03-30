@@ -8,6 +8,7 @@ from petvet_project.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    path('pets/', include('pets.urls')),
     path('', HomeView.as_view(), name='home'),
 ]
 
