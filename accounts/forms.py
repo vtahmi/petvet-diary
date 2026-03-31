@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 from .models import Profile
 
-
 User = get_user_model()
 
 
@@ -65,6 +64,21 @@ class CustomLoginForm(AuthenticationForm):
     )
 
 
+class CustomUserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['phone', 'bio']
+        widgets = {
+            'phone': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Phone number'
+            }),
+            'bio': forms.Textarea(attrs={
+                'rows': 3,
+                'class': 'form-control',
+                'placeholder': 'Tell us about yourself...'
+            }),
+        }
 
 
 class ProfileUpdateForm(forms.ModelForm):

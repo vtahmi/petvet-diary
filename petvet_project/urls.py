@@ -9,6 +9,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('pets/', include('pets.urls')),
+    path('community/', include('community.urls')),
+    path('api/', include('api.urls')),
     path('', HomeView.as_view(), name='home'),
 ]
 

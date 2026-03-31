@@ -23,9 +23,6 @@ class Tag(models.Model):
         ordering = ['name']
 
 
-from accounts.models import CustomUser
-
-
 class Comment(models.Model):
     pet = models.ForeignKey(
         Pet,

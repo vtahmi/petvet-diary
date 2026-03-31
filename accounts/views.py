@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView, DetailView
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import CustomUserRegistrationForm, CustomLoginForm, ProfileUpdateForm
+from .forms import CustomUserRegistrationForm, CustomLoginForm, ProfileUpdateForm, CustomUserUpdateForm
 from .models import Profile
 
 
@@ -56,6 +56,21 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self):
         return self.request.user.profile
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.POST:
+            context['user_form'] = CustomUserUpdateForm(self.request.POST, instance=self.request.user)
+        else:
+            context['user_form'] = CustomUserUpdateForm(instance=self.request.user)
+        return context
+
     def form_valid(self, form):
-        messages.success(self.request, 'Profile updated successfully!')
-        return super().form_valid(form)
+        context = self.get_context_data()
+        user_form = context['user_form']
+
+        if user_form.is_valid():
+            user_form.save()
+            messages.success(self.request, 'Profile updated successfully!')
+            return super().form_valid(form)
+        else:
+            return self.render_to_response(context)
