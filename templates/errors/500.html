@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Server Error - PetVet Diary{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+        <h1 class="display-1">500</h1>
+        <h2 class="mb-4">Server Error</h2>
+        <p class="lead">Oops! Something went wrong on our end.</p>
+        <p class="text-muted">Our team has been notified and is working on it! 🔧</p>
+        <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-3">Go Home</a>
+    </div>
+</div>
+{% endblock %}
