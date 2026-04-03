@@ -19,6 +19,12 @@ A web application for pet owners and veterinarians to manage pet health records,
 - Bootstrap 5
 - SQLite / PostgreSQL
 
+## Deployment
+
+- **Platform:** PythonAnywhere
+- **Live URL:** https://vtahmi.pythonanywhere.com
+- **Database:** SQLite
+
 ## Installation
 
 ### 1. Clone repository
