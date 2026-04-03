@@ -56,9 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-] + THIRD_PARTY_APPS + PROJECT_APPS + ['cloudinary']
+    'cloudinary',
+    'cloudinary_storage',
+] + THIRD_PARTY_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
